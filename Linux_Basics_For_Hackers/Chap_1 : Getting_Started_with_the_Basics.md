@@ -1,26 +1,120 @@
 # Getting_Started_with_the_Basics
-Solutions to the questions :<br>
-Let's first understand some symbols. <br>
 
-The tilde character ~ is a shorthand for your home directory. Instead of typing /home/username, you can type the tilde.<br>
+### 1.
+Use the `ls` command from the root (`/`) directory to explore the directory structure of Linux. Move to each of the directories with the `cd` command and run `pwd` to verify where you are in the directory structure.
 
-$ next to the cursor indicates the type of shell you're running. The dollar sign indicates it is the Bourne Again Shell (bash), the default Linux shell.
+---
 
-1. To solve this question<br> 
-    First go to the root(/) directory by using command `cd ../..`<br>
-    You will get output like : (grimlock㉿GRIMLOCK)-[/]
-    <br>Here my username is grimlock and you will be getting your own username.<br>
-    Then you can use command `cd(change directory) [directory_name]` to move into that directory.<br>
-    Now use `pwd(present working directory)` command to check which directory you are currently in.
+````shell
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ ls -l
+total 64
+drwxr-xr-x 4 grimlock grimlock 4096 Mar 23 16:04 Bash
+drwxr-xr-x 2 grimlock grimlock 4096 Mar 20 15:31 CTF
+drwxr-xr-x 8 grimlock grimlock 4096 Mar 20 16:36 Desktop
+drwxr-xr-x 3 grimlock grimlock 4096 Dec 26 13:44 Documents
+drwxr-xr-x 2 grimlock grimlock 4096 Mar 20 16:02 Downloads
+drwxr-xr-x 2 grimlock grimlock 4096 Dec 30 12:00 Lab
 
-2. Now there is concept of creating multiple user in kali so to check about the user there is command `whoami`.
+````
 
-3. There are a number of wordlists present in kali so as to do password cracking. We can get all those wordlists using command
-`locate wordlist`
+---
 
-4. For this question use command `cat > filename` ,then to exit and return back to prompt use `ctrl-D`.
 
-5. First we will make a directory with `mkdir`command followed by `directory name` ,then we will use `touch` command to create a new file ,then to copy the file in the root directory we will use `sudo cp filename /root/newfile_name` Here using this command we not only are copying the file into /root directory and also we are renaming it in the process.
+### 2.
+Use the `whoami` command to verify which user you are logged in as.
 
-So this was the solution for the chapter1 of the textbook I hope it was helpful :)
+---
+
+````shell
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ whoami        
+grimlock
+
+````
+
+---
+
+
+### 3.
+Use the `locate` command to find wordlists that can be used for password cracking.
+
+---
+
+````shell
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ locate /wordlists
+/etc/theHarvester/wordlists
+/etc/theHarvester/wordlists/dns-big.txt
+/etc/theHarvester/wordlists/dns-names.txt
+/etc/theHarvester/wordlists/dorks.txt
+/etc/theHarvester/wordlists/general
+/etc/theHarvester/wordlists/names_small.txt
+/etc/theHarvester/wordlists/general/common.txt
+/usr/bin/wordlists
+/usr/lib/python3/dist-packages/theHarvester/wordlists
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists/dns-big.txt
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists/dns-names.txt
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists/dorks.txt
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists/general
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists/names_small.txt
+/usr/lib/python3/dist-packages/theHarvester/data/wordlists/general/common.txt
+/usr/share/wordlists
+/usr/share/amass/wordlists
+/usr/share/amass/wordlists/all.txt
+/usr/share/amass/wordlists/bitquark_subdomains_top100K.txt
+/usr/share/amass/wordlists/deepmagic.com_top500prefixes.txt
+/usr/share/amass/wordlists/deepmagic.com_top50kprefixes.txt
+/usr/share/amass/wordlists/fierce_hostlist.txt
+/usr/share/amass/wordlists/jhaddix_all.txt
+
+````
+
+---
+
+
+### 4.
+Use the `cat` command to create a new file and then append to that file. Keep in mind that `>` redirects input to a file and `>>` appends to a file.
+
+---
+
+````shell
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ cat > temp.txt  
+This is > operation
+^C
+                                                                                                                                                             
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ cat >> temp.txt
+This is >> operation
+^C
+                                                                                                                                                             
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ cat temp.txt
+This is > operation
+This is >> operation
+
+````
+
+---
+
+
+### 5.
+Create a new directory called `hackerdirectory` and create a new file that directory named `hackedfile`. Now copy that file to your `/root` directory and rename it `secretfile`.
+
+---
+
+````shell
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ mkdir hackerdirectory
+                                                                                                                                                             
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ touch hackerdirectory/hackedfile
+
+┌──(grimlock㉿GRIMLOCK)-[~]
+└─$ cp hackerdirectory/hackedfile /root/secretfile
+````
+
+---
  
